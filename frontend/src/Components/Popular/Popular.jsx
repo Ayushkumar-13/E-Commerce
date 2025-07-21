@@ -1,10 +1,11 @@
 import React from 'react';
 import './Popular.css';
-import Data from '../Assets/data.jsx'; // function that returns product array
+import data_product from '../Assets/data.jsx'; // function that returns product array
 import Item from '../Item/Item';
 
+
 const Popular = () => {
-  const data_product = Data(); // call the function to get the data
+  const products = data_product; // call the function to get the data
 
   return (
     <div className='popular'>

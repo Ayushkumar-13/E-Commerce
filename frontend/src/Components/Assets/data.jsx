@@ -38,4 +38,4 @@ const Data = () => {
   return data_product;
 };
 
-export default Data;
+export default data_product;
