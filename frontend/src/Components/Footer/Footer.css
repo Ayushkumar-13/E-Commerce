@@ -5,19 +5,16 @@
     align-items: center;
     gap: 50px;
 }
-
 .footer-logo {
     display: flex;
     align-items: center;
     gap: 20px;
 }
-
 .footer-logo p {
     color: #383838;
     font-size: 46px;
     font-weight: 700;
 }
-
 .footer-links {
     display: flex;
     list-style: none;
@@ -25,11 +22,9 @@
     color: #252525;
     font-size: 20px;
 }
-
 .footer--links li {
     cursor: pointer;
 }
-
 .footer-social-icon {
     display: flex;
 }
@@ -55,4 +50,29 @@
     border-radius: 10px;
     height: 3px;
     background: #c7c7c7;
+}
+@media(max-width:800px){
+    .footer{
+        gap: 20px;
+    }
+    .footer-logo{
+        gap: 10px;
+        align-items: end;
+    }
+    .footer-logo img{
+        width: 40px;
+    }
+    .footer-logo p{
+        font-size: 25px;
+    }
+    .footer-links{
+        font-size: 14px;
+        gap: 10px;
+    }
+    .footer-social-icon img{
+        width: 22px;
+    }
+    .footer-copyright{
+        font-size: 13px;
+    }
 }
