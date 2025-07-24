@@ -1,0 +1,26 @@
+.nav-profile {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%; /* Optional: makes it circular */
+}
+.nav-logo{
+    height: 60px;
+    width: 60px;
+    object-fit: cover;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 60px;
+    box-shadow: 0 1px 3px -2px #000;
+    margin-bottom: 1px;
+    background-color: white;
+}
+.navbar-leftpart{
+    display: flex;
+    gap: 10px;
+    color: rgb(138, 138, 186);
+    line-height: 16px;
+}
