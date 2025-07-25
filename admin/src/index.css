@@ -3,3 +3,6 @@ body{
   background-color: #f6f6f6;
   height: 100vh;
 }
+.admin{
+  display: flex;
+}

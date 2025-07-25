@@ -22,5 +22,27 @@
     display: flex;
     gap: 10px;
     color: rgb(138, 138, 186);
-    line-height: 16px;
+    line-height: 20px;
+}
+@media(max-width:800px){
+    .nav-profile {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: 50%; /* Optional: makes it circular */
+}
+    .navbar{
+        padding: 15px 30px;
+    }
+    .nav-logo{
+        height: 40px;
+        width: 40px;
+    }
+    .navbar-leftpart{
+    display: flex;
+    gap: 8px;
+    color: rgb(138, 138, 186);
+    line-height: 9px;
+    font-size: 13px;
+}
 }
