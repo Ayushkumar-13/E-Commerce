@@ -15,7 +15,21 @@ const LoginSignup = () => {
   }
   const login = async () => {
     console.log("Loin function executed", formData)
-   
+   let responceData;
+    await fetch('http://localhost:4000/login', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type' : 'application/json',
+      },
+      body: JSON.stringify(formData),
+    }).then((response) => response.json()).then((data) => responceData = data)
+    if (responceData.success){
+      localStorage.setItem('auth-token', responceData.token);
+      window.location.replace("/");
+    } else {
+      alert(responceData.errors)
+    }
   }
 
   const signUp = async () => {
@@ -24,7 +38,7 @@ const LoginSignup = () => {
     await fetch('http://localhost:4000/signup', {
       method: 'POST',
       headers: {
-        Accept: 'application/form-data',
+        Accept: 'application/json',
         'Content-Type' : 'application/json',
       },
       body: JSON.stringify(formData),
