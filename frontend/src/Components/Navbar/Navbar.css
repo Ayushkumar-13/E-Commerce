@@ -89,7 +89,7 @@ background:#f3f3f3 ;
         width: 40px;
     }
     .nav-logo p{
-        font: size 25px;
+        font-size: 25px;
     }
     .nav-menu{
         gap: 30px;
@@ -154,9 +154,9 @@ background:#f3f3f3 ;
 }
 
 @media(max-width: 500px) {
-    .navbaar{
-        width: 8px 0px;
-        gap: 0;
+    .navbar{
+        width: 8px;
+        gap: 0px;
     }
     .nav-logo{
         transform: scale(0.8);

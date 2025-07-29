@@ -1,10 +1,10 @@
 import React, { useContext, useRef, useState } from 'react'
 import './Navbar.css'
-import logo from '../../../images/logo.png'
-import cart_icon from '../../../images/cart_icon.png'
+import logo from '../../assets/images/logo.png'
+import cart_icon from '../../assets/images/cart_icon.png'
 import { Link } from 'react-router-dom'
 import { ShopContext } from '../../Context/ShopContext'
-import nav_dropdown from '../../../images/nav_dropdown.svg'
+import nav_dropdown from '../../assets/images/nav_dropdown.svg'
 
 const Navbar = () => {
   const [menu, setMenu] = useState("shop")
@@ -32,9 +32,9 @@ const Navbar = () => {
       </ul>
       <div className="nav-login-cart">
         {
-          localStorage.getItem('auth-token')
+          localStorage.getItem('token')
             ? <button onClick={() => {
-              localStorage.removeItem('auth-token');
+              localStorage.removeItem('token');
               window.location.replace('/')
             }}> Logout </button>
             : <Link to='/login'> <button>Login</button></Link>

@@ -1,5 +1,7 @@
 .cartitems {
     margin: 100px 170px;
+    /* display: flex;
+    flex-direction: column; */
 }
 
 .cartitems hr {

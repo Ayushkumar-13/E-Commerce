@@ -1,18 +1,23 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './Popular.css';
-import data_product from '../Assets/data.jsx'; // function that returns product array
 import Item from '../Item/Item';
 
-
 const Popular = () => {
-  const products = data_product; // call the function to get the data
+  const [popularProducts, setPopularProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:4000/popularinwomen')
+      .then((response) => response.json())
+      .then((data) => setPopularProducts(data))
+      .catch((err) => console.error("Failed to fetch popular products:", err));
+  }, []);
 
   return (
     <div className='popular'>
       <h1>POPULAR IN WOMEN</h1>
       <hr />
       <div className="popular-item">
-        {data_product.map((item, i) => (
+        {popularProducts.map((item, i) => (
           <Item
             key={i}
             id={item.id}

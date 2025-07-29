@@ -1,11 +1,11 @@
-import p1_img from "../../../images/product_12.png";
-import p2_img from "../../../images/product_35.png";
-import p3_img from "../../../images/product_14.png";
-import p4_img from "../../../images/product_8.png";
-import p5_img from "../../../images/product_15.png";
-import p6_img from "../../../images/product_2.png";
-import p7_img from "../../../images/product_17.png";
-import p8_img from "../../../images/product_28.png";
+import p1_img from "../../assets/images/product_12.png";
+import p2_img from "../../assets/images/product_35.png";
+import p3_img from "../../assets/images/product_14.png";
+import p4_img from "../../assets/images/product_8.png";
+import p5_img from "../../assets/images/product_15.png";
+import p6_img from "../../assets/images/product_2.png";
+import p7_img from "../../assets/images/product_17.png";
+import p8_img from "../../assets/images/product_28.png";
 
 let new_collections = [
   {

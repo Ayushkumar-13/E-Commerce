@@ -1,9 +1,9 @@
 import React from 'react'
 import './Footer.css'
-import footer_logo from '../../../images/logo_big.png'
-import instagram_icon from '../../../images/instagram_icon.png'
-import pintester_icon from '../../../images/pintester_icon.png'
-import whatsapp_icon from '../../../images/whatsapp_icon.png'
+import footer_logo from '../../assets/images/logo_big.png'
+import instagram_icon from '../../assets/images/instagram_icon.png'
+import pintester_icon from '../../assets/images/pintester_icon.png'
+import whatsapp_icon from '../../assets/images/whatsapp_icon.png'
 
 const Footer = () => {
 
