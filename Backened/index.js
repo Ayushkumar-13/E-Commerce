@@ -335,6 +335,8 @@ app.post('/getcart', fetchUser, async (req, res) => {
 
 
 // Start Server
+
+if (process.env.NODE_ENV !==  "production"){
 app.listen(port, (error) => {
   if (!error) {
     console.log("-----------Server Running on Port " + port);
@@ -342,4 +344,8 @@ app.listen(port, (error) => {
     console.log("Error :" + error);
   }
 });
+
+}
+// Export server for vercel
+module.exports = app;
 
