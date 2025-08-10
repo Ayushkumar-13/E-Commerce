@@ -7,7 +7,7 @@ function NewCollection() {
 
 
     useEffect(() => {
-        fetch('https://e-commerce-418v.vercel.app/newcollections')
+        fetch(`${import.meta.env.VITE_BACKEND_URL}/newcollections`)
         .then((response) => response.json())
         .then((data) => setNew_Collection(data));
     },[])

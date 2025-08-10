@@ -15,14 +15,14 @@ const ShopContextProvider = (props) => {
     const [all_product, setAll_Product] = useState([]);
 
     useEffect(() => {
-        fetch("https://e-commerce-418v.vercel.app/allproducts")
+        fetch(`${import.meta.env.VITE_BACKEND_URL}/allproducts`)
             .then((response) => response.json())
             .then((data) => setAll_Product(data))
             .catch((err) => {
                 console.error("Failed to fetch products:", err);
             });
         if (localStorage.getItem('token')) {
-            fetch('https://e-commerce-418v.vercel.app/getcart', {
+            fetch(`${import.meta.env.VITE_BACKEND_URL}/getcart`, {
                 method: 'POST',
                 headers: {
                     Accept: 'application/form-data',
@@ -43,7 +43,7 @@ const ShopContextProvider = (props) => {
         console.log("Sending token in header:", token);
 
         if (token) {
-            fetch("https://e-commerce-418v.vercel.app/addtocart", {
+            fetch(`${import.meta.env.VITE_BACKEND_URL}/addtocart`, {
                 method: "POST",
                 headers: {
                     Accept: "application/form-data",
@@ -75,7 +75,7 @@ const ShopContextProvider = (props) => {
         }));
 
         if (localStorage.getItem("token")) {
-            fetch("https://e-commerce-418v.vercel.app/removefromcart", {
+            fetch(`${import.meta.env.VITE_BACKEND_URL}/removefromcart`, {
                 method: "POST",
                 headers: {
                     Accept: "application/form-data",
