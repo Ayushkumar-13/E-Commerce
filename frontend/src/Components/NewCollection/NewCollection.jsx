@@ -7,7 +7,7 @@ function NewCollection() {
 
 
     useEffect(() => {
-        fetch('http://localhost:4000/newcollections')
+        fetch('https://e-commerce-418v.vercel.app/newcollections')
         .then((response) => response.json())
         .then((data) => setNew_Collection(data));
     },[])

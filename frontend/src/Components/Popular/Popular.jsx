@@ -6,7 +6,7 @@ const Popular = () => {
   const [popularProducts, setPopularProducts] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:4000/popularinwomen')
+    fetch('https://e-commerce-418v.vercel.app/popularinwomen')
       .then((response) => response.json())
       .then((data) => setPopularProducts(data))
       .catch((err) => console.error("Failed to fetch popular products:", err));

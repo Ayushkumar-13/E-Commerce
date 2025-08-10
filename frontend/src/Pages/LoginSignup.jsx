@@ -17,7 +17,7 @@ setFormData({...formData, [e.target.name]:e.target.value})
 const login = async () => {
 console.log("Login function Executed", formData)
 let responseData;
-  await fetch('http://localhost:4000/login', {
+  await fetch('https://e-commerce-418v.vercel.app/login', {
     method : 'POST',
     headers : {
       Accept : 'application/form-data',
@@ -37,7 +37,7 @@ let responseData;
 const signup = async () => {
   console.log("Sign Up function Executed", formData)
   let responseData;
-  await fetch('http://localhost:4000/signup', {
+  await fetch('https://e-commerce-418v.vercel.app/signup', {
     method : 'POST',
     headers : {
       Accept : 'application/form-data',
