@@ -7,6 +7,8 @@ const jwt = require("jsonwebtoken");
 const multer = require("multer");
 const path = require("path");
 const cors = require("cors");
+const cloudinary = require("cloudinary").v2;
+const { CloudinaryStorage } = require("multer-storage-cloudinary");
 
 
 //  Middlewares
@@ -24,26 +26,41 @@ app.get("/", (req, res) => {
 });
 
 // ✅ FIXED: Image Storage Engine (only updated this part)
-const storage = multer.diskStorage({
-  destination: path.join(__dirname, 'upload/images'),  // ✅ Fixed path issue
-  filename: (req, file, cb) => {
-    return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`);
+
+
+// Cloudinary Config
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
+});
+
+// Cloudinary Storage
+const storage = new CloudinaryStorage({
+  cloudinary: cloudinary,
+  params: {
+    folder: 'uploads',
+    allowed_formats: ['jpg', 'png', 'jpeg'],
+    transformation: [{ width: 500, height: 500, crop: 'limit' }]
   }
 });
 
-
-
-const upload = multer({ storage: storage });
+const upload = multer({ storage });
 
 //  Creating Upload Endpoint for images
-app.use('/images', express.static(path.join(__dirname, 'upload/images'))); // ✅ Use absolute path here too
+
 
 app.post("/upload", upload.single('product'), (req, res) => {
+  if (!req.file) {
+    return res.status(400).json({ success: 0, message: "No file uploaded" });
+  }
+
   res.json({
     success: 1,
-    image_url: `http://localhost:${port}/images/${req.file.filename}`
+    image_url: req.file.path || req.file.secure_url  // Cloudinary returns the image URL in `file.path`
   });
 });
+
 
 
 // Schema for creating products
@@ -336,16 +353,14 @@ app.post('/getcart', fetchUser, async (req, res) => {
 
 // Start Server
 
-if (process.env.NODE_ENV !==  "production"){
-app.listen(port, (error) => {
-  if (!error) {
-    console.log("-----------Server Running on Port " + port);
-  } else {
-    console.log("Error :" + error);
-  }
+if (process.env.NODE_ENV !== "mybackened") {
+  app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+  });
+}
+app.get("/api/status", (req, res) => {
+  res.json({ success: true, message: "Backend is running on Vercel!" });
 });
 
-}
 // Export server for vercel
 module.exports = app;
-
