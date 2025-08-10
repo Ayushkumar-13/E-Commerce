@@ -1,7 +1,7 @@
-import p1_img from '../../assets/images/product_1.png';
-import p2_img from '../../assets/images/product_2.png'
-import p3_img from '../../assets/images/product_3.png';
-import p4_img from '../../assets/images/product_4.png';
+import p1_img from '../../Assets/images/product_1.png'; // capital A to match folder name
+import p2_img from '../../Assets/images/product_2.png';
+import p3_img from '../../Assets/images/product_3.png';
+import p4_img from '../../Assets/images/product_4.png';
 
 const data_product = [
   {
@@ -34,8 +34,4 @@ const data_product = [
   },
 ];
 
-const Data = () => {
-  return data_product;
-};
-
-export default data_product;
+export default data_product; // just export the array directly
