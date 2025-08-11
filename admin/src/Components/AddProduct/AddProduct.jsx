@@ -38,7 +38,7 @@ const AddProduct = () => {
 
     let responseData;
     try {
-      const uploadResp = await fetch('http://localhost:4000/upload', {
+      const uploadResp = await fetch(`${import.meta.env.VITE_BACKEND_URI}/upload`, {
         method: 'POST',
         body: formData
       });
@@ -56,7 +56,7 @@ const AddProduct = () => {
       product.old_price = Number(product.old_price);
 
       try {
-        const resp = await fetch('http://localhost:4000/addproduct', {
+        const resp = await fetch(`${import.meta.env.VITE_BACKEND_URI}/addproduct`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
