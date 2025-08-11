@@ -50,14 +50,30 @@ const upload = multer({ storage });
 //  Creating Upload Endpoint for images
 
 
-app.post("/upload", upload.single('product'), (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ success: 0, message: "No file uploaded" });
-  }
+app.post("/upload", (req, res) => {
+  upload.single("product")(req, res, (err) => {
+    if (err) {
+      console.error("❌ Upload error:", err);
+      return res.status(500).json({
+        success: 0,
+        message: "Image upload failed",
+        error: err.message
+      });
+    }
 
-  res.json({
-    success: 1,
-    image_url: req.file.path || req.file.secure_url  // Cloudinary returns the image URL in `file.path`
+    if (!req.file) {
+      return res.status(400).json({
+        success: 0,
+        message: "No file uploaded"
+      });
+    }
+
+    console.log("✅ Uploaded file:", req.file);
+
+    res.json({
+      success: 1,
+      image_url: req.file.path || req.file.secure_url
+    });
   });
 });
 
