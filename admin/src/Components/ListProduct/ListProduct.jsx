@@ -15,7 +15,7 @@ const ListProduct = () => {
     }, [])
 
      const removeProduct = async (id) => {
-        await fetch(`${import.meta.env.VITE_BACKEND_URI}/removeproduct,` {
+        await fetch(`${import.meta.env.VITE_BACKEND_URI}/removeproduct`, {
             method: 'POST',
             headers: {
                 Accept: 'appliation/json',
