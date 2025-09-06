@@ -9,11 +9,20 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    height: 100%;
 }
 .nav-logo p {
     color: #171717;
-    font-size: 38px;
+    font-size: 30px;
     font-weight: 600;
+}
+.nav-logo img {
+    width: 120px;       /* fixed width */
+    object-fit: contain; /* keeps aspect ratio, fits inside box */
+    object-position: center; /* centers the image */
+    display: block;     /* removes extra space */
+    padding-top: 2px;
+
 }
 .nav-menu {
     display: flex;
@@ -86,7 +95,7 @@ background:#f3f3f3 ;
         padding: 12px 50px;
     }
     .nav-logo img{
-        width: 40px;
+        width: 100px;
     }
     .nav-logo p{
         font-size: 25px;
@@ -112,6 +121,10 @@ background:#f3f3f3 ;
     .navbar{
         padding: 12px 30px;
     }
+    .nav-logo img {
+    width: 85px;
+
+}
     .nav-menu{
         gap: 25px;
         font-size: 14px;
@@ -138,6 +151,10 @@ background:#f3f3f3 ;
         width: 30px;
         transition: 0.5s;
     }
+    .nav-logo img {
+    width: 70px;
+
+}
     .nav-menu{
         display: none;
         height: 80px;
@@ -155,12 +172,15 @@ background:#f3f3f3 ;
 
 @media(max-width: 500px) {
     .navbar{
-        width: 8px;
-        gap: 0px;
+      padding: 12px 0px
     }
     .nav-logo{
         transform: scale(0.8);
     }
+    .nav-logo img {
+    width: 70px;
+
+}
     .nav-menu{
         height: 70px;
         top: 50px;

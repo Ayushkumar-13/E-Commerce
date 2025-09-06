@@ -10,10 +10,15 @@
     align-items: center;
     gap: 20px;
 }
+.footer-logo img{
+    height: 90px;
+    width: 110px;
+}
 .footer-logo p {
     color: #383838;
-    font-size: 46px;
+    font-size: 42px;
     font-weight: 700;
+    margin-bottom: 6px;
 }
 .footer-links {
     display: flex;
@@ -33,6 +38,7 @@
     padding-bottom: 6px;
     background: #fbfbfb;
     border: 1px solid #ebebeb;
+    cursor: pointer;
 }
 .footer-copyright{
     display: flex;
@@ -60,10 +66,17 @@
         align-items: end;
     }
     .footer-logo img{
-        width: 40px;
+        width: 80px;
+        height: 40px;
+        margin-right: 0px;
+        padding-right: 0px;
+
     }
     .footer-logo p{
         font-size: 25px;
+        margin-bottom: 7px;
+        margin-left: 0px;
+        padding-left: 0px;
     }
     .footer-links{
         font-size: 14px;
