@@ -37,16 +37,27 @@ const AddProduct = () => {
     formData.append('product', image);
 
     let responseData;
-    try {
-      const uploadResp = await fetch(`${import.meta.env.VITE_BACKEND_URI}/upload`, {
-        method: 'POST',
-        body: formData
-      });
-      responseData = await uploadResp.json();
-    } catch (error) {
-      alert("Image upload failed.");
-      return;
-    }
+try {
+  const uploadResp = await fetch(`${import.meta.env.VITE_BACKEND_URI}/upload`, {
+    method: 'POST',
+    body: formData
+  });
+
+  const contentType = uploadResp.headers.get("content-type");
+
+  if (contentType && contentType.indexOf("application/json") !== -1) {
+    responseData = await uploadResp.json();
+  } else {
+    const text = await uploadResp.text();
+    console.error("Expected JSON but got:", text);
+    alert("Unexpected response from server");
+    return;
+  }
+} catch (error) {
+  alert("Image upload failed.");
+  return;
+}
+
 
     if (responseData.success) {
       product.image = responseData.image_url;
