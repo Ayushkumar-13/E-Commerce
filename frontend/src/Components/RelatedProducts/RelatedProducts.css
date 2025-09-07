@@ -5,6 +5,22 @@
     gap:10px ;
     height: 90vh;
 }
+
+
+.item-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  display: block; /* ensures entire card is clickable */
+  transition: transform 0.2s;
+}
+
+.item-link:hover {
+  transform: scale(1.02); /* optional hover effect */
+}
+
+
+
 .relatedproducts h1{
     color: #171717;
     font-size: 50px;
