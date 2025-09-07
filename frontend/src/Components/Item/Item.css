@@ -1,6 +1,6 @@
 .item {
   width: 280px;
-  min-height: 380px; /* equal height */
+  min-height: 320px; /* equal height */
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
